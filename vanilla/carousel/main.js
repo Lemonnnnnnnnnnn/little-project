@@ -2,6 +2,8 @@ const nextBtn = document.getElementsByClassName("next-btn")[0];
 const prevBtn = document.getElementsByClassName("prev-btn")[0];
 const container = document.getElementsByClassName("container")[0];
 
+// 问题：轮播图无法向前循环
+
 function push() {
   const firstImg = container.firstElementChild;
 
