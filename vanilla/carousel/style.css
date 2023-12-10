@@ -10,12 +10,16 @@ body {
   max-height: 100vh;
   overflow: auto;
   scroll-behavior: smooth;
+  /* mandatory 意味着强制的，其使自动滚动总是生效的  */
+  scroll-snap-type: x mandatory;
 }
 
-/* .container::-webkit-scrollbar{
-    display: none;
-} */
+.container::-webkit-scrollbar {
+  display: none;
+}
 
 .container img {
   max-width: 100%;
+  /* 指定停下的位置为下一元素的首部位置 */
+  scroll-snap-align: start;
 }
