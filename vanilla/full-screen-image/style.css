@@ -1,0 +1,25 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* ------------------------------------------- */
+.container {
+  display: flex;
+  flex-direction: column;
+  /* mandatory 意味着强制的，其使自动滚动总是生效的  */
+  scroll-snap-type: y mandatory;
+  max-height: 100vh;
+  overflow: auto;
+}
+
+.container::-webkit-scrollbar{
+    display: none;
+}
+
+.container img {
+  max-width: 100%;
+  /* 指定停下的位置为下一元素的首部位置 */
+  scroll-snap-align: start;
+}
