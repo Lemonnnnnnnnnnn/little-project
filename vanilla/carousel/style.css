@@ -5,42 +5,17 @@ body {
 }
 
 /* ------------------------------------------- */
-.start-container {
+.container {
   display: flex;
-  /* mandatory 意味着强制的，其使自动滚动总是生效的  */
-  scroll-snap-type: x mandatory;
-  gap: 12px;
+  max-height: 100vh;
   overflow: auto;
+  scroll-behavior: smooth;
 }
 
-/* 隐藏滚动条 */
-.start-container::-webkit-scrollbar {
-  display: none;
-}
+/* .container::-webkit-scrollbar{
+    display: none;
+} */
 
-.start-container img {
-  max-width: 90%;
-  /* 指定停下的位置为下一元素的首部位置 */
-  scroll-snap-align: start;
-}
-
-/* ------------------------------------------- */
-
-.center-container {
-  display: flex;
-  /* mandatory 意味着强制的，其使自动滚动总是生效的  */
-  scroll-snap-type: x mandatory;
-  overflow: auto;
-  gap: 12px;
-}
-
-/* 隐藏滚动条 */
-.center-container::-webkit-scrollbar {
-  display: none;
-}
-
-.center-container img {
-  max-width: 90%;
-  /* 下一元素在视口中居中时停止滚动 */
-  scroll-snap-align: center;
+.container img {
+  max-width: 100%;
 }
