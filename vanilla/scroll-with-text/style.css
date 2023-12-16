@@ -1,0 +1,58 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* 使页面可以滚动 */
+  min-height: 200vh;
+  /* 默认展示黑色背景 */
+  background: #222;
+}
+
+section {
+  /* 让文字滚动时也固定在中间，让两个文字重叠 */
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  /* 形成色差效果，和clip-path共同控制滚动时的视觉效果 */
+  background-color: #fff;
+  clip-path: circle(0 at left center);
+  /* 让 section 内的文字覆盖 section 外的文字 */
+  z-index: 2;
+}
+
+h2 {
+  /* 让文字滚动时也固定在中间，让两个文字重叠 */
+  position: fixed;
+  display: flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #00a8ff;
+  z-index: 1;
+  font-size: 30vw;
+}
+
+section h2 {
+    /* 展示背景图片 */
+    background-image: url(../../assets/cat3.jpg);
+    /* 指定背景图片不随页面滚动而滚动 */
+    background-attachment: fixed;
+    /* 图片保持比例放大或缩小，超出容器则裁剪（contain超出容器展示白边） */
+    background-size: cover;
+    /* 展示图片中心部分 */
+    background-position: center;
+    /* 背景渲染区域：文字 */
+    background-clip: text;
+    /* 文字透明，展示背景图片 */
+    -webkit-text-fill-color: transparent;
+}
