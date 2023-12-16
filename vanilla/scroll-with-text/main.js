@@ -1,4 +1,4 @@
-const section = document.getElementsByTagName("section")[0];
+const section = document.querySelector("section");
 
 window.addEventListener("scroll", () => {
   const value = window.scrollY;

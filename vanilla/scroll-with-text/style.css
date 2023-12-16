@@ -44,7 +44,7 @@ h2 {
 
 section h2 {
     /* 展示背景图片 */
-    background-image: url(../../assets/cat3.jpg);
+    background-image: url(../../assets/cat2.jpg);
     /* 指定背景图片不随页面滚动而滚动 */
     background-attachment: fixed;
     /* 图片保持比例放大或缩小，超出容器则裁剪（contain超出容器展示白边） */
