@@ -1,0 +1,60 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+  overflow: hidden;
+}
+
+main {
+  display: grid;
+  gap: 4px;
+  grid-template-columns: repeat(15, 1fr);
+}
+
+main span {
+  position: relative;
+  z-index: 10;
+  width: 100px;
+  height: 100px;
+  background: #111;
+}
+
+/* 将方格分为两块，塑造视觉效果 */
+main span::before {
+  content: "";
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+#cursor {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background-color: aqua;
+  /* 以鼠标中心点为圆心 */
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  animation: animation 4s linear infinite;
+}
+
+@keyframes animation {
+  0% {
+    /* hue-rotate : 色相角度：https://zh.wikipedia.org/wiki/%E8%89%B2%E7%9B%B8 */
+    /* blur: 圆形模糊可以创建手电筒的效果  */
+    filter: hue-rotate(0deg) blur(50px);
+  }
+  100% {
+    filter: hue-rotate(360deg) blur(50px);
+  }
+}
