@@ -1,0 +1,79 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #222;
+  gap: 50px;
+}
+
+.btn {
+  position: relative;
+  padding: 20px 60px;
+  background: rgba(45, 45, 45);
+  border-radius: 50px;
+  color: #999;
+  font-size: 1.5rem;
+  /* 大写字母 */
+  text-transform: uppercase;
+  cursor: pointer;
+  /* 设置hover时的过渡时间 */
+  transition: 0.5s;
+  /* 隐藏通过伪类设置的按钮外部的光源 */
+  overflow: hidden;
+}
+
+.btn:hover {
+  color: var(--clr);
+  /* 文字阴影：offsetX offsetY radius color */
+  /* 设置两层 radius 的文字阴影，这是十分常用的设置发光效果的技巧 */
+  text-shadow: 0 0 15px var(--clr), 0 0 40px var(--clr);
+}
+
+.btn span {
+  /* 稍微加大字母间距会美观许多 */
+  letter-spacing: 0.2rem;
+  position: relative;
+  /* 不让遮罩层盖住文字 */
+  z-index: 1;
+}
+
+/* 跟随鼠标移动的光源 */
+.btn::before {
+  content: "";
+  position: absolute;
+  /* 配合js让光点跟随鼠标移动且居中 */
+  left: var(--x);
+  top: var(--y);
+  transform: translate(-50%, -50%);
+  /* radial-gradient(颜色，颜色，颜色)塑造三色混合效果 */
+  /* 用混合透明塑造打光效果 */
+  background: radial-gradient(var(--clr), transparent, transparent);
+  /* hover时再展示光源 */
+  opacity: 0;
+  width: 200px;
+  height: 200px;
+  /* top , left 属性的改变不设置过渡，其他设置过渡时间为0.5s */
+  transition: 0.5s, top 0s, left 0s;
+}
+
+.btn:hover::before {
+  opacity: 1;
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  /* 用黑色覆盖光源，配合inset仅展示边框 */
+  background: rgba(45, 45, 45, 0.8);
+  /* 距离容器2px，形成彩色内边框 */
+  inset: 2px;
+  border-radius: 48px;
+}
