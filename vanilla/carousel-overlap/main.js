@@ -51,6 +51,10 @@ function switchImage(index) {
   update();
 }
 
+function init() {
+  update();
+}
+
 function update() {
   let activeImage = document.querySelector("img.active");
 
@@ -90,5 +94,5 @@ function update() {
   }
 }
 
-update();
+init();
 dotsAddEvent();

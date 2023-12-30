@@ -9,14 +9,56 @@
   <body>
     <div class="scroller">
       <div class="scroller-wrapper">
-        <img id="cat1" src="../../assets/cat.jpg" alt="" />
-        <img id="cat2" src="../../assets/cat2.jpg" alt="" />
-        <img id="cat3" class="active" src="../../assets/cat3.jpg" alt="" />
-        <img id="cat4" src="../../assets/cat4.jpg" alt="" />
-        <img id="cat5" src="../../assets/cat5.jpg" alt="" />
-        <img id="cat6" src="../../assets/cat6.jpg" alt="" />
-        <img id="cat7" src="../../assets/cat7.jpg" alt="" />
-        <img id="cat8" src="../../assets/cat8.jpg" alt="" />
+        <!-- decoding的默认值是sync，其会阻塞 transform 动画效果，用 async 将其放在子线程执行 -->
+        <img
+          decoding="async"
+          style="--img: url(../../assets/cat.jpg)"
+          src="../../assets/cat.jpg"
+          alt=""
+        />
+        <img
+          decoding="async"
+          style="--img: url(../../assets/cat2.jpg)"
+          src="../../assets/cat2.jpg"
+          alt=""
+        />
+        <img
+          decoding="async"
+          style="--img: url(../../assets/cat3.jpg)"
+          class="active"
+          src="../../assets/cat3.jpg"
+          alt=""
+        />
+        <img
+          decoding="async"
+          style="--img: url(../../assets/cat4.jpg)"
+          src="../../assets/cat4.jpg"
+          alt=""
+        />
+        <img
+          decoding="async"
+          style="--img: url(../../assets/cat5.jpg)"
+          src="../../assets/cat5.jpg"
+          alt=""
+        />
+        <img
+          decoding="async"
+          style="--img: url(../../assets/cat6.jpg)"
+          src="../../assets/cat6.jpg"
+          alt=""
+        />
+        <img
+          decoding="async"
+          style="--img: url(../../assets/cat7.jpg)"
+          src="../../assets/cat7.jpg"
+          alt=""
+        />
+        <img
+          decoding="async"
+          style="--img: url(../../assets/cat8.jpg)"
+          src="../../assets/cat8.jpg"
+          alt=""
+        />
       </div>
       <div class="dots">
         <span class="dot"></span>

@@ -31,6 +31,7 @@ html {
     position: relative;
     display: flex;
     height: 100%;
+    /* 用 translateZ 来实现重叠效果，与 Zindex 的区别是可以利用 GPU 加速的能力, 来源：https://stackoverflow.com/questions/15920775/image-decode-times-from-chrome-timeline-dev-tool */
     transform-style: preserve-3d;
 
     img {
@@ -39,68 +40,13 @@ html {
       top: 0;
       width: 400px;
       height: 240px;
-      transform: translate3d(0,0,0) scale(1);
+      transform: translate3d(0, 0, 0) scale(1);
       transform-origin: left;
       opacity: 0;
       transition: all 0.5s ease-in-out;
       object-fit: cover;
-    }
-    
-    #cat1 {
-        content: '';
-        width: 400px;
-        height: 240px;
-        background-image: url("../../assets/cat.jpg");
-        background-size: cover;
-    }
-    #cat2 {
-        content: '';
-        width: 400px;
-        height: 240px;
-        background-image: url("../../assets/cat2.jpg");
-        background-size: cover;
-    }
-    #cat3 {
-        content: '';
-        width: 400px;
-        height: 240px;
-        background-image: url("../../assets/cat3.jpg");
-        background-size: cover;
-    }
-    #cat4 {
-        content: '';
-        width: 400px;
-        height: 240px;
-        background-image: url("../../assets/cat4.jpg");
-        background-size: cover;
-    }
-    #cat5 {
-        content: '';
-        width: 400px;
-        height: 240px;
-        background-image: url("../../assets/cat5.jpg");
-        background-size: cover;
-    }
-    #cat6 {
-        content: '';
-        width: 400px;
-        height: 240px;
-        background-image: url("../../assets/cat6.jpg");
-        background-size: cover;
-    }
-    #cat7 {
-        content: '';
-        width: 400px;
-        height: 240px;
-        background-image: url("../../assets/cat7.jpg");
-        background-size: cover;
-    }
-    #cat8 {
-        content: '';
-        width: 400px;
-        height: 240px;
-        background-image: url("../../assets/cat8.jpg");
-        background-size: cover;
+      background-image: var(--img);
+      background-size: cover;
     }
   }
 
