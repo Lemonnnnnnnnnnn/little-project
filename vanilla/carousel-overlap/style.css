@@ -1,0 +1,125 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #222;
+  color: #fff;
+}
+
+.scroller {
+  width: 1240px;
+  height: 310px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  mask: linear-gradient(
+    to left,
+    transparent,
+    rgba(0, 0, 0, 1) 20%,
+    rgba(0, 0, 0, 1) 80%,
+    transparent
+  );
+
+  .scroller-wrapper {
+    position: relative;
+    display: flex;
+    height: 100%;
+    transform-style: preserve-3d;
+
+    img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 400px;
+      height: 240px;
+      transform: translate3d(0,0,0) scale(1);
+      transform-origin: left;
+      opacity: 0;
+      transition: all 0.5s ease-in-out;
+      object-fit: cover;
+    }
+    
+    #cat1 {
+        content: '';
+        width: 400px;
+        height: 240px;
+        background-image: url("../../assets/cat.jpg");
+        background-size: cover;
+    }
+    #cat2 {
+        content: '';
+        width: 400px;
+        height: 240px;
+        background-image: url("../../assets/cat2.jpg");
+        background-size: cover;
+    }
+    #cat3 {
+        content: '';
+        width: 400px;
+        height: 240px;
+        background-image: url("../../assets/cat3.jpg");
+        background-size: cover;
+    }
+    #cat4 {
+        content: '';
+        width: 400px;
+        height: 240px;
+        background-image: url("../../assets/cat4.jpg");
+        background-size: cover;
+    }
+    #cat5 {
+        content: '';
+        width: 400px;
+        height: 240px;
+        background-image: url("../../assets/cat5.jpg");
+        background-size: cover;
+    }
+    #cat6 {
+        content: '';
+        width: 400px;
+        height: 240px;
+        background-image: url("../../assets/cat6.jpg");
+        background-size: cover;
+    }
+    #cat7 {
+        content: '';
+        width: 400px;
+        height: 240px;
+        background-image: url("../../assets/cat7.jpg");
+        background-size: cover;
+    }
+    #cat8 {
+        content: '';
+        width: 400px;
+        height: 240px;
+        background-image: url("../../assets/cat8.jpg");
+        background-size: cover;
+    }
+  }
+
+  .dots {
+    display: flex;
+    justify-content: center;
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: #fff;
+      margin: 0 5px;
+      cursor: pointer;
+      transition: all 0.5s ease-in-out;
+    }
+
+    .dot.active {
+      background-color: cornflowerblue;
+    }
+  }
+}
