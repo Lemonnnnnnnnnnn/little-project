@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+:root{
+  --animation-time: .5s
+}
+
 html {
   display: flex;
   justify-content: center;
@@ -16,23 +20,50 @@ html {
 .scroller {
   width: 1240px;
   height: 310px;
-  overflow: hidden;
   display: flex;
+  position: relative;
+  z-index: 1;
   flex-direction: column;
-  mask: linear-gradient(
-    to left,
-    transparent,
-    rgba(0, 0, 0, 1) 20%,
-    rgba(0, 0, 0, 1) 80%,
-    transparent
-  );
+  /* 原始样式只显示遮罩图片非透明的部分 */
+
+  .left-arrow,
+  .right-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    cursor: pointer;
+    color: cornflowerblue;
+  }
+
+  .left-arrow {
+    left: -50px;
+  }
+
+  .right-arrow {
+    right: -50px;
+  }
 
   .scroller-wrapper {
     position: relative;
     display: flex;
     height: 100%;
-    /* 用 translateZ 来实现重叠效果，与 Zindex 的区别是可以利用 GPU 加速的能力, 来源：https://stackoverflow.com/questions/15920775/image-decode-times-from-chrome-timeline-dev-tool */
+    /* 启动 GPU 加速的能力, 来源：https://stackoverflow.com/questions/15920775/image-decode-times-from-chrome-timeline-dev-tool */
     transform-style: preserve-3d;
+    mask: linear-gradient(
+      to left,
+      transparent,
+      rgba(0, 0, 0, 1) 20%,
+      rgba(0, 0, 0, 1) 80%,
+      transparent
+    );
 
     img {
       position: absolute;
@@ -43,10 +74,13 @@ html {
       transform: translate3d(0, 0, 0) scale(1);
       transform-origin: left;
       opacity: 0;
-      transition: all 0.5s ease-in-out;
+      transition: all var(--animation-time) ease-in-out;
       object-fit: cover;
+      /* 动画优化：利于浏览器在执行 transition 时利用pre-paint来减少重绘（尝试出来的解决方案，暂时无法找到来源） */
       background-image: var(--img);
       background-size: cover;
+      /* 通过js操作dom元素时，添加动画让dom元素渐入 */
+      animation: fadeIn var(--animation-time) ease-in-out forwards;
     }
   }
 
@@ -61,7 +95,7 @@ html {
       background-color: #fff;
       margin: 0 5px;
       cursor: pointer;
-      transition: all 0.5s ease-in-out;
+      transition: all var(--animation-time) ease-in-out;
     }
 
     .dot.active {
@@ -69,3 +103,63 @@ html {
     }
   }
 }
+
+/* .fade-in-left {
+  animation: fade-in-left var(--animation-time) ease-in-out forwards;
+}
+
+.fade-in-right {
+  animation: fade-in-right var(--animation-time) ease-in-out forwards;
+}
+
+.fade-out-left {
+  animation: fade-out-left var(--animation-time) ease-in-out forwards;
+}
+
+.fade-out-right {
+  animation: fade-out-right var(--animation-time) ease-in-out forwards;
+}
+
+@keyframes fade-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-200px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fade-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(200px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fade-out-left {
+  from {
+    opacity: 0;
+    transform: translateX(-200px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fade-out-right {
+  from {
+    opacity: 0;
+    transform: translateX(200px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+} */
