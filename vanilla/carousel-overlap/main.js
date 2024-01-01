@@ -157,6 +157,13 @@ function updateImages() {
   images = document.querySelectorAll("img");
 }
 
+function autoRun(){
+  setInterval(()=>{
+    nextBtn.click();
+  },5000)
+}
+
 init();
 dotsAddEvent();
 btnAddEvent();
+autoRun();
