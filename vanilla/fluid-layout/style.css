@@ -1,0 +1,60 @@
+/* 基本样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background-color: #222;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+    background-color: rgb(89, 89, 228);
+    padding: 12px;
+    border-radius: 4px;
+    height: 40px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input {
+    height: 40px;
+    background-color: #fff;
+    padding: 12px;
+}
+
+input::placeholder {
+    color: #000
+}
+
+form {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #fff;
+    width: 50vw;
+    overflow: hidden;
+}
+
+/* 流式排版 */
+form {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+input.username,
+input.password {
+    /* 平分空间 不收缩 初始大小130px */
+    flex: 1 0 130px;
+}
+
+button {
+    flex: 1 0 80px;
+}
