@@ -1,0 +1,19 @@
+img { 
+    width: 100%;
+}
+
+/* 滑动容器 */
+.scrollbox { 
+    position: relative;
+    /* 添加阻尼 */
+    transition: .15s ease;
+    transform: translateY(0);
+}
+
+/* 视图容器，fixed布局，和浏览器自带滚动事件分离，通过 Javascript 代码自定义滚动行为 */
+.viewbox { 
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+}

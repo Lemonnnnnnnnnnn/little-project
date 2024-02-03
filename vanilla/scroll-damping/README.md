@@ -1,0 +1,1 @@
+思路来自于：[【前端 | 教程】纯干货！三步实现滑动阻尼效果](https://www.bilibili.com/video/BV1QN411T7gW/?spm_id_from=333.999.0.0&vd_source=46ec3a848cbcd369fb3ada66147055a7)
