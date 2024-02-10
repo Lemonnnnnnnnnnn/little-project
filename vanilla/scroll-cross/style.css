@@ -4,12 +4,17 @@
     box-sizing: border-box;
 }
 
+:root {
+    --innerboxGap: 48px
+}
+
 body {
     display: flex;
     flex-direction: column;
     gap: 24px;
     align-items: center;
     width: 100%;
+    background-color: #171717;
     padding: 48px 0;
 }
 
@@ -18,8 +23,8 @@ body {
     border-radius: 16px;
     background-color: cornflowerblue;
     color: #fff;
-    width: 800px;
-    height: 300px;
+    width: 1000px;
+    height: 600px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,14 +35,14 @@ body {
 /* 不出现滚动条 */
 .scrollbox {
     width: 100%;
-    background-color: aquamarine;
-    /* overflow: hidden; */
+    /* background-color: aquamarine; */
+    overflow: hidden;
     display: flex;
 }
 
 .container {
     display: flex;
-    gap: 24px;
+    gap: 48px;
     height: 100vh;
     /* 不缩放，保证元素初始宽度不被外层 overflow: hidden 影响 */
     flex-shrink: 0;
@@ -50,10 +55,35 @@ body {
     border-radius: 16px;
     background-color: cornflowerblue;
     color: #fff;
-    width: 800px;
-    height: 500px;
+    width: 1000px;
+    height: 600px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 80px;
+    background-image: url(../../assets/city.svg);
+    background-size: cover;
+    position: relative;
+}
+
+.innerbox img {
+    height: 6rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.innerbox:nth-child(1) {
+    background-position-x: 0;
+}
+
+
+.innerbox:nth-child(2) {
+    background-position-x: 800px;
+}
+
+
+.innerbox:nth-child(3) {
+    background-position-x: 1600px;
 }

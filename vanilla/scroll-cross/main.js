@@ -2,9 +2,13 @@ const scrollbox = document.querySelector(".scrollbox");
 const container = document.querySelector(".container");
 const containerHeight = document.querySelector(".container").offsetHeight;
 const innerBoxs = document.querySelectorAll(".innerbox");
-const innerBox = innerBoxs[0];
-const gap = 48;
+const car = document.querySelector(".car");
 const margin = 48;
+const citysPosition = {
+  0: 0,
+  1: 800,
+  2: 1600,
+};
 
 function resize() {
   scrollbox.style.height = container.offsetWidth + "px";
@@ -31,6 +35,13 @@ function scroll() {
 
   if (scrollBoxInView && !scrollBoxToEnd) {
     container.style.transform = `translate(-${moveX}px,${moveY}px)`;
+    car.style.transform = `translateX(${moveX * 1.9}px)`;
+    for (let i in innerBoxs) {
+      innerBoxs[i].style.backgroundPositionX = `${
+        moveX * 1.2 + citysPosition[i]
+      }px`;
+      // cars[i].style.transform = `translateX(${moveX * 1.9}px)`;
+    }
   }
 }
 
