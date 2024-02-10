@@ -1,0 +1,100 @@
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #222;
+    --icon-size: 80px;
+}
+
+.container { 
+    display: flex;
+    align-items: center;
+}
+
+.icons { 
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    position: relative;
+}
+
+.icons i { 
+    font-size: 50px;
+    cursor: pointer;
+    height: var(--icon-size);
+    width: var(--icon-size);
+    opacity: 0.7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+}
+
+.icons i.active { 
+    opacity: 1;
+}
+
+.indicator { 
+    position: absolute;
+    width: var(--icon-size);
+    height: var(--icon-size);
+    background: salmon;
+    left: 0;
+    top: 0;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    transition: all .5s ease;
+}
+
+.indicator::after { 
+    content: '';
+    position: absolute;
+    right: 0;
+    top: -30px;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    /* x偏移8px，y偏移8px,模糊度0，扩散范围8px(从边界向外拓展8px，图形为矩形) */
+    box-shadow: 8px 8px 0 8px salmon;
+    /* 右下角圆角，圆角内展示 transparent，圆角外展示box-shadow */
+    border-bottom-right-radius: 30px;
+}
+.indicator::before { 
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: -30px;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    /* x偏移8px，y偏移-8px,模糊度0，扩散范围8px(从边界向外拓展8px，图形为矩形) */
+    box-shadow: 8px -8px 0 8px salmon;
+    /* 右上角圆角，圆角内展示 transparent，圆角外展示box-shadow */
+    border-top-right-radius: 30px;
+}
+
+.content { 
+    height: 380px;
+    width: 540px;
+    padding: 30px;
+    background: linear-gradient(to right, salmon ,#8686f9);
+    position: relative;
+}
+
+.content .tab { 
+    position: absolute;
+    opacity: 0;
+    transition: all .5s ease;
+}
+
+.content .tab.active { 
+    opacity: 1;
+}
