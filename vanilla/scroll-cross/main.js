@@ -1,26 +1,36 @@
 const scrollbox = document.querySelector(".scrollbox");
-const imgContainer = document.querySelector(".img-container");
-const imgHeight = document.querySelector("img").height;
-const imgs = document.querySelectorAll("img");
+const container = document.querySelector(".container");
+const containerHeight = document.querySelector(".container").offsetHeight;
+const innerBoxs = document.querySelectorAll(".innerbox");
+const innerBox = innerBoxs[0];
+const gap = 48;
+const margin = 48;
 
 function resize() {
-  let width = imgContainer.offsetWidth;
-
-  scrollbox.style.height = width + "px";
+  scrollbox.style.height = container.offsetWidth + "px";
 }
 
 function scroll() {
+  // scrollBox 是否完全进入视野
   const scrollBoxInView = window.scrollY > scrollbox.offsetTop;
-  let moveDistance = window.scrollY - scrollbox.offsetTop;
+  // 垂直总滚动距离
+  const scrollDistanceY = scrollbox.offsetHeight - containerHeight;
+  // 水平总滚动距离
+  const scrollDistanceX = margin * 2 + container.offsetWidth - innerWidth;
+
+  // 当前垂直滚动距离
+  const moveY = window.scrollY - scrollbox.offsetTop;
+  // 当前水平滚动距离
+  // scrollDistanceX / scrollDistanceY =  moveX / moveY
+  const moveX = (scrollDistanceX / scrollDistanceY) * moveY;
+
+  // 是否滚动到scrollBox底部
   const scrollBoxToEnd =
-    window.scrollY >= scrollbox.offsetTop + scrollbox.offsetHeight - imgHeight;
+    window.scrollY >=
+    scrollbox.offsetTop + scrollbox.offsetHeight - containerHeight;
 
   if (scrollBoxInView && !scrollBoxToEnd) {
-    imgContainer.style.transform = `translateY(${moveDistance}px)`;
-
-    for (let img of imgs) {
-      img.style.transform = `translateX(-${moveDistance}px)`;
-    }
+    container.style.transform = `translate(-${moveX}px,${moveY}px)`;
   }
 }
 

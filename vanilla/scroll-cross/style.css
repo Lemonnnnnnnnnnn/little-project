@@ -10,6 +10,7 @@ body {
     gap: 24px;
     align-items: center;
     width: 100%;
+    padding: 48px 0;
 }
 
 
@@ -25,23 +26,34 @@ body {
     font-size: 80px;
 }
 
+
 /* 不出现滚动条 */
 .scrollbox {
     width: 100%;
     background-color: aquamarine;
-    overflow: hidden;
+    /* overflow: hidden; */
     display: flex;
 }
 
-.img-container {
+.container {
     display: flex;
     gap: 24px;
     height: 100vh;
     /* 不缩放，保证元素初始宽度不被外层 overflow: hidden 影响 */
     flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+    margin: 0 48px;
 }
 
-img {
-    height: 100%;
-    object-fit: contain;
+.innerbox {
+    border-radius: 16px;
+    background-color: cornflowerblue;
+    color: #fff;
+    width: 800px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 80px;
 }
