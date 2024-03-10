@@ -1,0 +1,36 @@
+a { 
+    text-decoration: none;
+}
+
+a[a] {
+    transition: all 0.2s;
+    background-size: 0 1px;
+    /* background-image 的位置位于左下角 */
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    /* background-size 设置背景图片大小。而非设置背景颜色大小 */
+    /* background-color: currentColor; */
+    background-image: linear-gradient(currentColor, currentColor);
+}
+
+a[a]:hover { 
+    /* background's width from 0 transition to 100% */
+    background-size: 100% 1px;
+}
+
+a[b] { 
+    /* background-position 过渡时间为 0 ，延迟为 0.2s */
+    /* 当鼠标移上去时，background-size 触发 transition 效果 ，下划线从左侧向右侧延展(width 0 -> 100%) */
+    /* 下划线移动结束时（0.2s后），background-position 的变化开始被执行，background-image 的位置从左下角变化为标签的右下角（无过渡），宽度100%，用户无感知 */
+    /* 当0.2s后，鼠标移开时，background-size 触发 transition 效果，根据此时 background-position 的位置，此时正向 transition 为从右侧向左侧延申，此时执行反向 transition ，从左侧向右侧缩短  */
+    transition: background-size .2s, background-position 0s .2s ;
+    background-size: 0 1px;
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(currentColor, currentColor);
+}
+
+a[b]:hover { 
+    background-size: 100% 1px;
+    background-position: 100% 100%;
+}
