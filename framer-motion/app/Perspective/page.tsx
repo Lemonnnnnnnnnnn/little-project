@@ -5,16 +5,27 @@ import { useState } from "react";
 const flip: AnimationProps["variants"] = {
   initial: {
     opacity: 0,
-    // cannot see it from front in the initial state
     rotateX: 90,
+    translateY: 80,
+    translateX: -20,
   },
   enter: {
     opacity: 1,
     rotateX: 0,
+    translateY: 0,
+    translateX: 0,
+    transition: {
+      duration: 0.5,
+      ease: [0.25, 1, 0.5, 1],
+    },
   },
   exit: {
     opacity: 0,
     rotateX: 90,
+    transition: {
+      duration: 0.5,
+      ease: [0.25, 1, 0.5, 1],
+    },
   },
 };
 
@@ -52,7 +63,10 @@ const Perspective = () => {
       <button onClick={() => setActive(!active)}>toggle</button>
       <AnimatePresence>
         {active && (
-          <div className="absolute top-[10vh]" style={{ perspective: perspectiveValue, perspectiveOrigin }}>
+          <div
+            className="absolute top-[10vh]"
+            style={{ perspective: perspectiveValue, perspectiveOrigin }}
+          >
             {" "}
             <motion.div
               variants={flip}
