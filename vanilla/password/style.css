@@ -1,0 +1,61 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    width: 500px;
+    height: 80px;
+    position: relative;
+}
+
+h1 {
+    position: absolute;
+    color: #fff;
+    top: -80px;
+}
+
+input {
+    position: absolute;
+    z-index: 10;
+    background-color: #333;
+    padding: 32px;
+    border: 0;
+    outline: none;
+    font-size: 1.25em;
+    font-weight: 500;
+    color: #fff;
+    /* keep 2px space for password-indicator */
+    inset: 2px;
+    /* equal */
+    /* left: 2px;
+    top: 2px;
+    bottom: 2px;
+    right: 2px; */
+}
+
+.password-indicator {
+    position: absolute;
+    background: #111;
+    /* equal left/top/bottom/right:0 , equal take 100% space */
+    inset: 0;
+}
+
+/* .password-indicator:nth-child(x) is to select password-indicator's father's the Xth child, 
+while .password-indicator:nth-of-type(x) is to select the Xth element of password-indicator */
+.password-indicator:nth-of-type(2) {
+    filter: blur(5px);
+}
+
+.password-indicator:nth-of-type(3) {
+    filter: blur(10px);
+}
